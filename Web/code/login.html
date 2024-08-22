@@ -3,15 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
+	<link rel="stylesheet" href="login.css">
+	<script type="text/javascript" src="login.js"></script>
 </head>
 <body>
 	<h1>Login</h1>
-	<form action="">
-		ID: <input type="text">
+	<form>
+		ID: <input id="txt_id" class="login_inputs" type="text">
 		<br>
-		PW: <input type="password">
+		PW: <input class="login_inputs" type="password">
 		<br>
-		<input type="button" value="login">
+		<!-- <input id="btn_login" type="button" value="login" onclick="myFunction()"> -->
+		<input id="btn_login" type="button" value="login" onclick="popId()">
 	</form>
 	
 </body>

@@ -1,0 +1,14 @@
+h1 {
+	color: rgb(0, 11, 110);
+	text-align: center;
+}
+
+.login_inputs {
+	font-size: 30px;
+}
+
+#btn_login {
+	font-size: 20px;
+	width: 100px;
+	height: 40px;
+}
