@@ -33,6 +33,11 @@ app.get('/', (req, res) => {
 	console.log(a, b)
 })
 
+app.post('/:userName', (req, res) => {
+	const b = req.body
+	res.send(200, b)
+})
+
 app.get('/:userName', function(req, res) {
 	const param = req.params
 	
