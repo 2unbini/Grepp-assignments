@@ -14,10 +14,16 @@ app.use(express.json())
 app.post('/login', (req, res) => {
 	let user = req.body
 	let isUserExist
+	let isPasswordTrue
 
 	for (let v of mockDb.values()) {
-		if (v.name === user.name && v.password === user.password) {
+		if (v.name === user.name) {
 			isUserExist = true
+			if (v.password === user.password) {
+				isPasswordTrue = true
+			} else {
+				isPasswordTrue = false
+			}
 		} else {
 			isUserExist = false
 		}
@@ -28,9 +34,15 @@ app.post('/login', (req, res) => {
 			message: `${user.name}에 해당하는 유저가 없습니다.`
 		})
 	} else {
-		res.status(200).json({
-			message: `${user.name}님 환영합니다.`
-		})
+		if (!isPasswordTrue) {
+			res.status(400).json({
+				message: "비밀번호를 확인해주세요."
+			})
+		} else {
+			res.status(200).json({
+				message: `${user.name}님 환영합니다.`
+			})
+		}
 	}
 })
 
